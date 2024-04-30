@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 966c0c1b174575d44957989615aaba61
+guid: ebbc38f21d8d7614e9d6486aeb1308c6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: KnifeCheese001_1K
+    second: {fileID: 2100000, guid: 3e9b94aff2b6b9d42b681b662faa396d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

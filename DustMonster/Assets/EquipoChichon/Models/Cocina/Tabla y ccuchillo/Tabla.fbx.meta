@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 966c0c1b174575d44957989615aaba61
+guid: eda5ffcacfc90d94db3f70c39d603d88
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tabla de picar
+    second: {fileID: 2100000, guid: 9d02161987c41b54397cfecdbf68c2e3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
