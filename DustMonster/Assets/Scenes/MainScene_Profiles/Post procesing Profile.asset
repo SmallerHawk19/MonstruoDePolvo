@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Post procesing Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 6456683533823468122}
---- !u!114 &6456683533823468122
+  - {fileID: 1019902560114643173}
+--- !u!114 &1019902560114643173
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: 99.1
+    value: -100
   brightness:
     overrideState: 0
     value: 0
