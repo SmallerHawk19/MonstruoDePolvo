@@ -3,7 +3,7 @@ using UnityEngine;
 public class Spinner : MonoBehaviour
 {
    [SerializeField] private float _rotationSpeed = 100f;
-   [SerializeField] private bool _moveUpAndDown = false;
+   [SerializeField] private bool _moveUpAndDown = true;
    [SerializeField] private float _moveSpeed = 0.1f;
    [SerializeField] private float _moveDistance = 0.1f;
 
