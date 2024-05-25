@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 99262c89528e31e41865192fa95d7e25,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.210457
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99262c89528e31e41865192fa95d7e25,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.025807992
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99262c89528e31e41865192fa95d7e25,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.572431
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99262c89528e31e41865192fa95d7e25,
         type: 3}
@@ -58,13 +58,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1018664272722485354, guid: 99262c89528e31e41865192fa95d7e25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 99262c89528e31e41865192fa95d7e25,
         type: 3}
       propertyPath: m_Name
       value: Palomita
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 99262c89528e31e41865192fa95d7e25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 99262c89528e31e41865192fa95d7e25,
+        type: 3}
+      propertyPath: m_TagString
+      value: KatamariCollectible
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424396828587804706, guid: 99262c89528e31e41865192fa95d7e25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99262c89528e31e41865192fa95d7e25,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6717634639467786956}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 99262c89528e31e41865192fa95d7e25,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4085312052279452080}
   m_SourcePrefab: {fileID: 100100000, guid: 99262c89528e31e41865192fa95d7e25, type: 3}
+--- !u!1 &5447847670433884344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 99262c89528e31e41865192fa95d7e25,
+    type: 3}
+  m_PrefabInstance: {fileID: 5141929101290608105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6717634639467786956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447847670433884344}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3552975, y: 0.29946142, z: 0.3093743}
+  m_Center: {x: 0.0043388605, y: 0.12174925, z: 0.009807125}
+--- !u!114 &4085312052279452080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447847670433884344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b9eaf810e404e4494d07f00e39ffd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectibleSize: 1
