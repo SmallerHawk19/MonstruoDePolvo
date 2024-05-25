@@ -33,5 +33,10 @@ public class Timer : MonoBehaviour
         TimeSpan timeSpan = TimeSpan.FromSeconds(timeToDisplay);
         reloj.text = string.Format("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
     }
+
+    public void StartGame()
+    {
+        isRunning = true;
+    }
 }
 
