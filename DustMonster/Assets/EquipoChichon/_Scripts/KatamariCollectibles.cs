@@ -8,6 +8,7 @@ using UnityEngine;
 public class KatamariCollectibles : MonoBehaviour
 {
     [HideInInspector] public DustSpawner DustSpawner;
+    [SerializeField] private int _collectiblePoints = 1;
 
     public float CollectibleSize = 1f;
 
