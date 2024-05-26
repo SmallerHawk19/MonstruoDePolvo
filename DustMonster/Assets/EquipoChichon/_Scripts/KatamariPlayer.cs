@@ -4,14 +4,18 @@ public class KatamariPlayer : MonoBehaviour
 {
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private float _force = 10f;
+    [SerializeField] private float _speedLimit = 10f;
+    [SerializeField] private float _speedBoostDuration = 10f;
 
     private Rigidbody _rigidBody;
     private Vector3 _moveDirection;
-    private bool _canMove = true;
+    private bool _canMove = false;
+    private float _initialForce;
 
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
+        _initialForce = _force;
     }
 
     private void Update()
@@ -26,6 +30,17 @@ public class KatamariPlayer : MonoBehaviour
     public void SetCanMove(bool canMove)
     {
         _canMove = canMove;
+    }
+
+    public void AddSpeed(float speed)
+    {
+        _force += speed;
+        Invoke("ResetSpeed", _speedBoostDuration);
+    }
+
+    private void ResetSpeed()
+    {
+        _force = _initialForce;
     }
 
     private void GetInput()
@@ -63,5 +78,14 @@ public class KatamariPlayer : MonoBehaviour
             _rigidBody.drag = 0f;
         }
         _rigidBody.AddForce(_moveDirection * _force);
+        LimitSpeed();
+    }
+
+    private void LimitSpeed()
+    {
+        if (_rigidBody.velocity.magnitude > _speedLimit)
+        {
+            _rigidBody.velocity = _rigidBody.velocity.normalized * _speedLimit;
+        }
     }
 }

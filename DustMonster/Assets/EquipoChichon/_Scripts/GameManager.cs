@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    [SerializeField] private Timer _gameTimer;
+    [SerializeField] private KatamariPlayer _katamariPlayer;
+    
+    private int _itemsCollected = 0;
 
-    private float _gameTime = 90; 
+    [HideInInspector] public static GameManager Instance { get; private set; }
 
      private void Awake()
     {
@@ -22,17 +23,21 @@ public class GameManager : MonoBehaviour
 
     public void AddTime(float time)
     {
-        _gameTime += time;
-        Debug.Log("Time added: " + time);
+        _gameTimer.AddTime(time);
     }
 
     public void AddSpeed(float speed)
     {
-        //TODO implement speed
+        _katamariPlayer.AddSpeed(speed);
     }
 
     public void AddShield(float shield)
     {
         //TODO
+    }
+
+    public void ColledItem()
+    {
+        _itemsCollected++;
     }
 }

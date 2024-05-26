@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 90;
-    public bool isRunning = false;
-    public TextMeshProUGUI reloj;
+    [SerializeField] private float _timeRemaining = 90;
+    [SerializeField] private TextMeshProUGUI _timerText;
 
-    // Update is called once per frame
-    void Update()
+    private bool _isRunning = false;
+
+    private void Update()
     {
-        if (isRunning)
+        if (_isRunning)
         {
-            if (timeRemaining > 0)
+            if (_timeRemaining > 0)
             {
-                timeRemaining -= Time.deltaTime;
-                UpdateTimerDisplay(timeRemaining);
+                _timeRemaining -= Time.deltaTime;
+                UpdateTimerDisplay(_timeRemaining);
             }
             else
             {
-                timeRemaining = 0;
-                isRunning = false;
-                UpdateTimerDisplay(timeRemaining);
+                _timeRemaining = 0;
+                _isRunning = false;
+                UpdateTimerDisplay(_timeRemaining);
             }
         }
     }
@@ -31,12 +31,20 @@ public class Timer : MonoBehaviour
     {
         timeToDisplay = Mathf.Max(timeToDisplay, 0);
         TimeSpan timeSpan = TimeSpan.FromSeconds(timeToDisplay);
-        reloj.text = string.Format("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
+        _timerText.text = string.Format("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds);
     }
 
-    public void StartGame()
+    public void AddTime(float time)
     {
-        isRunning = true;
+        if (_isRunning)
+        {
+             _timeRemaining += time;
+        }
+    }
+
+    public void TimmerRunning(bool running)
+    {
+        _isRunning = running;
     }
 }
 
