@@ -4,11 +4,13 @@ public class Collectible : MonoBehaviour
 {
     [SerializeField] private BoosterType boosterType;
     [SerializeField] private float _valueToChange = 0;
+    [SerializeField] private AudioClip _audioClip;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            PlaySound();
             CollectItem();
             Destroy(gameObject);
         }
@@ -28,5 +30,10 @@ public class Collectible : MonoBehaviour
                 GameManager.Instance.AddShield(_valueToChange);
                 break;
         }
+    }
+
+    private void PlaySound()
+    {
+        AudioSource.PlayClipAtPoint(_audioClip, transform.position);
     }
 }

@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boosterType: 0
   _valueToChange: 5
+  _audioClip: {fileID: 8300000, guid: dbca13ec1ab4cda438c57fb102611567, type: 3}
 --- !u!65 &685781649809600000
 BoxCollider:
   m_ObjectHideFlags: 0

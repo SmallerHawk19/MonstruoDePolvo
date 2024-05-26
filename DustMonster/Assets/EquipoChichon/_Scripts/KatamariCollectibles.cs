@@ -2,11 +2,21 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
+
+
 public class KatamariCollectibles : MonoBehaviour
 {
     [HideInInspector] public DustSpawner DustSpawner;
 
     public float CollectibleSize = 1f;
+
+    private AudioSource _audioSource;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,6 +29,13 @@ public class KatamariCollectibles : MonoBehaviour
         DustSpawner.DustCollected();
         transform.GetComponent<Collider>().enabled = false;
         transform.parent = katamariBall;
+        PlaySound();
         Destroy(this);
+    }
+
+    private void PlaySound()
+    {
+        _audioSource.pitch = Random.Range(0.8f, 1.2f);
+        _audioSource.Play();
     }
 }
