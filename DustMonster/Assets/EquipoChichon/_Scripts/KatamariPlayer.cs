@@ -3,7 +3,7 @@ using UnityEngine;
 public class KatamariPlayer : MonoBehaviour
 {
     [SerializeField] private Camera _playerCamera;
-    [SerializeField] private float _force = 10f;
+    [SerializeField] private float _speedForce = 10f;
     [SerializeField] private float _speedLimit = 10f;
     [SerializeField] private float _speedBoostDuration = 10f;
 
@@ -11,11 +11,13 @@ public class KatamariPlayer : MonoBehaviour
     private Vector3 _moveDirection;
     private bool _canMove = false;
     private float _initialForce;
+    private Vector3 _initialPosition;
 
     private void Start()
     {
+        _initialPosition = transform.position;
         _rigidBody = GetComponent<Rigidbody>();
-        _initialForce = _force;
+        _initialForce = _speedForce;
     }
 
     private void Update()
@@ -34,13 +36,13 @@ public class KatamariPlayer : MonoBehaviour
 
     public void AddSpeed(float speed)
     {
-        _force += speed;
+        _speedForce += speed;
         Invoke("ResetSpeed", _speedBoostDuration);
     }
 
     private void ResetSpeed()
     {
-        _force = _initialForce;
+        _speedForce = _initialForce;
     }
 
     private void GetInput()
@@ -77,7 +79,7 @@ public class KatamariPlayer : MonoBehaviour
         {
             _rigidBody.drag = 0f;
         }
-        _rigidBody.AddForce(_moveDirection * _force);
+        _rigidBody.AddForce(_moveDirection * _speedForce);
         LimitSpeed();
     }
 
@@ -87,5 +89,12 @@ public class KatamariPlayer : MonoBehaviour
         {
             _rigidBody.velocity = _rigidBody.velocity.normalized * _speedLimit;
         }
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = _initialPosition;
+        _rigidBody.velocity = Vector3.zero;
+        _rigidBody.angularVelocity = Vector3.zero;
     }
 }

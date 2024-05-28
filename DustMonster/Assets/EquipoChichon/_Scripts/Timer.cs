@@ -8,6 +8,13 @@ public class Timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timerText;
 
     private bool _isRunning = false;
+    private float _initialTime;
+
+    private void Start()
+    {
+        _initialTime = _timeRemaining;
+        UpdateTimerDisplay(_timeRemaining);
+    }
 
     private void Update()
     {
@@ -22,6 +29,7 @@ public class Timer : MonoBehaviour
             {
                 _timeRemaining = 0;
                 _isRunning = false;
+                GameManager.Instance.TimerFinished();
                 UpdateTimerDisplay(_timeRemaining);
             }
         }
@@ -45,6 +53,12 @@ public class Timer : MonoBehaviour
     public void TimmerRunning(bool running)
     {
         _isRunning = running;
+    }
+
+    public void ResetTimer()
+    {
+        _timeRemaining = _initialTime;
+        UpdateTimerDisplay(_timeRemaining);
     }
 }
 
