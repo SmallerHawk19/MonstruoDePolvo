@@ -97,4 +97,15 @@ public class KatamariPlayer : MonoBehaviour
         _rigidBody.velocity = Vector3.zero;
         _rigidBody.angularVelocity = Vector3.zero;
     }
+
+    public void ClearChilren()
+    {
+       foreach(Transform child in transform)
+        {
+            if(child.CompareTag("KatamariCollectible"))
+            {
+                Destroy(child.gameObject);
+            }
+        }
+    }
 }

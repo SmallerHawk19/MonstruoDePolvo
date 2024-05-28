@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     private bool _isRunning = false;
     private float _initialTime;
 
-    private void Start()
+    private void OnEnable()
     {
         _initialTime = _timeRemaining;
         UpdateTimerDisplay(_timeRemaining);
