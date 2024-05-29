@@ -6,15 +6,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Timer _gameTimer;
     [SerializeField] private KatamariPlayer _katamariPlayer;
     [SerializeField] private ScoreUI _scoreUI;
-    [SerializeField] List<GameObject> _gameLevels;
+    [SerializeField] private List<GameObject> _gameLevels;
 
     [SerializeField] private List<int> _scoreToWin;
     [SerializeField] private List<int> _scoreForExtraLife;
+
+    [SerializeField] private List<GameObject> _levelCanvas;
+    [SerializeField] private GameObject _winCanvas;
+    [SerializeField] private GameObject _loseCanvas;
     
     private int _itemsCollected = 0;
     private int _currentScore = 0;
     private int _currentLevel = 0;
-    private int _curentLife = 3;
+    private int _currentLife = 3;
 
     [HideInInspector] public static GameManager Instance { get; private set; }
 
@@ -26,7 +30,7 @@ public class GameManager : MonoBehaviour
           }
           else
           {
-                Destroy(gameObject);
+                Destroy(this.gameObject);
           }
      }
 
@@ -56,7 +60,7 @@ public class GameManager : MonoBehaviour
         _scoreUI.AddScore(scoreToAdd);
     }
 
-    public void ColledItem()
+    public void CollectedItem()
     {
         _itemsCollected++;
     }
@@ -72,29 +76,37 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _gameLevels.Count; i++)
         {
             _gameLevels[i].SetActive(false);
-            _gameLevels[index].SetActive(true);
         }
+            _gameLevels[index].SetActive(true);
+             _levelCanvas[index].SetActive(true);
     }
 
     public void ResetGame() 
     {         
         _gameTimer.ResetTimer();
         _katamariPlayer.ResetPosition();
-        _katamariPlayer.ClearChilren(); //Comment this is you want to keep the dust particles between levels or tries.
+        _katamariPlayer.SetCanMove(false);
+        _katamariPlayer.ClearChildren(); //Comment this is you want to keep the dust particles between levels or tries.
         _itemsCollected = 0;
         _currentScore = 0;
         _scoreUI.SetScore(_currentScore, _scoreToWin[_currentLevel], _scoreForExtraLife[_currentLevel]);
-        _scoreUI.UpdateLifes(_curentLife);
+        _scoreUI.UpdateLifes(_currentLife);
+    }
+
+    public void StartGame()
+    {
+        _gameTimer.TimmerRunning(true);
+        _katamariPlayer.SetCanMove(true);
     }
 
     private void CheckAddLife()
     {
         if (_currentScore >= _scoreForExtraLife[_currentLevel])
         {
-            if (_curentLife < 5)
+            if (_currentLife < 5)
             {
-                _curentLife++;
-                _scoreUI.UpdateLifes(_curentLife);
+                _currentLife++;
+                _scoreUI.UpdateLifes(_currentLife);
             }
         }
     }
@@ -108,24 +120,22 @@ public class GameManager : MonoBehaviour
             {
                 ChangeLevel(_currentLevel);
                 ResetGame();
-                _gameTimer.TimmerRunning(true); // remove this with a game canvas
             }
             else
             {
-                //TODO win the game
+                _winCanvas.SetActive(true);
             }
         }
         else
         {
-            _curentLife--;
-            if (_curentLife > 0)
+            _currentLife--;
+            if (_currentLife > 0)
             {
                 ResetGame();
-                _gameTimer.TimmerRunning(true); // remove this with a game canvas
             }
             else
             {
-                //TODO lose the game
+                _loseCanvas.SetActive(true);
             }
         }
     }

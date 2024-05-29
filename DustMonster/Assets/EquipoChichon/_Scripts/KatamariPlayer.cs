@@ -98,7 +98,7 @@ public class KatamariPlayer : MonoBehaviour
         _rigidBody.angularVelocity = Vector3.zero;
     }
 
-    public void ClearChilren()
+    public void ClearChildren()
     {
        foreach(Transform child in transform)
         {

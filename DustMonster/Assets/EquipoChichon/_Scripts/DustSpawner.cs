@@ -31,8 +31,8 @@ public class DustSpawner : MonoBehaviour
 
     public void DustCollected()
     {
-        _isSpawning = true;
         _timeSinceLastSpawn = 0;
+        _isSpawning = true;
     }
 
     private void SpawnDust()
