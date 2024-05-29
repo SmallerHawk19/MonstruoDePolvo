@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4532263777590345228}
   - component: {fileID: 3036865870574680985}
-  - component: {fileID: 8540256672757646511}
   m_Layer: 0
   m_Name: +5s Booster
   m_TagString: Untagged
@@ -50,21 +49,6 @@ MonoBehaviour:
   _moveUpAndDown: 1
   _moveSpeed: 0.1
   _moveDistance: 0.1
---- !u!114 &8540256672757646511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3743153479568434832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2270e8bdd92477e4fbd01898ba69f378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boosterType: 0
-  _valueToChange: 5
-  _audioClip: {fileID: 8300000, guid: dbca13ec1ab4cda438c57fb102611567, type: 3}
 --- !u!1 &5099990451410869377
 GameObject:
   m_ObjectHideFlags: 0

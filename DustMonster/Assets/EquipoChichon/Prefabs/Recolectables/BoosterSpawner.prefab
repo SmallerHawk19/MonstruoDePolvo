@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6529672547323055619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 356100995274202372, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: _boosterSpawner
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 356100995274202372, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 356100995274202372, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3743153479568434832, guid: 2a45f59395e59d14ba5c605f9f5d6a64,
+        type: 3}
+    - target: {fileID: 356100995274202372, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3288363178899016950, guid: 7ee8a0e827aefe44e87232bdd796762f,
+        type: 3}
+    - target: {fileID: 356100995274202372, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 7851349883689677066, guid: 55fee9a810ca23047a5af0d699c45927,
+        type: 3}
+    - target: {fileID: 356100995274202372, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 4282875660095258095, guid: 8ea6a1cc483ee884ca1064434356bce0,
+        type: 3}
+    - target: {fileID: 356100995274202372, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 7131404362082629595, guid: 2afc62adea73efc409d0cd8474bbfc83,
+        type: 3}
+    - target: {fileID: 356100995274202372, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2315682488781274512, guid: 315e890a89e191140bacf152eb639596,
+        type: 3}
+    - target: {fileID: 502298661914005779, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7122ac29e813c2147b1a1efcddfafa58, type: 2}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620477464259153182, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503169947019721661, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded,
+        type: 3}
+      propertyPath: m_Name
+      value: BoosterSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec0b1ebc71a0f934b8f73ba75bfa5ded, type: 3}

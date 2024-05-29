@@ -7,6 +7,7 @@ public class DustSpawner : MonoBehaviour
     [SerializeField] private float _spawnInterval = 30f;
 
     [SerializeField] private List<GameObject> _dustPrefabs;
+    [SerializeField] private bool _boosterSpawner = false;
 
     private float _timeSinceLastSpawn;
     private bool _isSpawning = false;
@@ -39,7 +40,16 @@ public class DustSpawner : MonoBehaviour
     {
         GameObject prefabToSpawn = GetRandomDust();
         GameObject dust = Instantiate(prefabToSpawn, _spawnPoint.position, prefabToSpawn.transform.rotation);
-        dust.GetComponent<KatamariCollectibles>().DustSpawner = this;
+        dust.transform.parent = _spawnPoint;
+
+        if (_boosterSpawner)
+        {
+            dust.GetComponentInChildren<Collectible>().DustSpawner = this;
+        } else
+        {
+            dust.GetComponentInChildren<KatamariCollectibles>().DustSpawner = this;
+        }
+
         _isSpawning = false;
     }
 

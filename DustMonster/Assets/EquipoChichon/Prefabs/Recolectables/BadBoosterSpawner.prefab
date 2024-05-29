@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8848689041974807977
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1639628568356500926, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_Name
+      value: BadBoosterSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5540299716605952797, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658162407036575504, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ff61d6fbc7714fa47a8e359b45aa2b2d, type: 2}
+    - target: {fileID: 6804676674143441671, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804676674143441671, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8481461489331037696, guid: d50b5b94a13440745bb26c28790d1e7f,
+        type: 3}
+    - target: {fileID: 6804676674143441671, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6861518250494712277, guid: 7a32fea74a597a94baa8196297e9f1e6,
+        type: 3}
+    - target: {fileID: 6804676674143441671, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 3680382659895267121, guid: 50c47f9f69d8e9449afd43d2a504a30b,
+        type: 3}
+    - target: {fileID: 6804676674143441671, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 6551923309771820980, guid: c1ce2bcd402918140816236d37708810,
+        type: 3}
+    - target: {fileID: 6804676674143441671, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+        type: 3}
+      propertyPath: _dustPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 7786154980967479319}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 40c3852d01fdeeb47b773a97b0cad9e7, type: 3}
+--- !u!1 &7786154980967479319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1639628568356500926, guid: 40c3852d01fdeeb47b773a97b0cad9e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8848689041974807977}
+  m_PrefabAsset: {fileID: 0}

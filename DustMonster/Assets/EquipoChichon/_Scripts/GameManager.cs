@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             _gameLevels[i].SetActive(false);
         }
             _gameLevels[index].SetActive(true);
-             _levelCanvas[index].SetActive(true);
+            _levelCanvas[index].SetActive(true);
     }
 
     public void ResetGame() 
@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
             _currentLife--;
             if (_currentLife > 0)
             {
+                ChangeLevel(_currentLevel);
                 ResetGame();
             }
             else

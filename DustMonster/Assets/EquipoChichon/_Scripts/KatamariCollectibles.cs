@@ -26,11 +26,11 @@ public class KatamariCollectibles : MonoBehaviour
 
     public void Collect(Transform katamariBall)
     {
+        transform.parent = katamariBall;
+        transform.GetComponent<Collider>().enabled = false;
         GameManager.Instance.CollectedItem();
         GameManager.Instance.AddScore(_collectiblePoints);
         DustSpawner.DustCollected();
-        transform.GetComponent<Collider>().enabled = false;
-        transform.parent = katamariBall;
         PlaySound();
         Destroy(this);
     }

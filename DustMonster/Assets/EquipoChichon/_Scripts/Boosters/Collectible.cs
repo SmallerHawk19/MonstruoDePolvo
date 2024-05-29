@@ -6,6 +6,8 @@ public class Collectible : MonoBehaviour
     [SerializeField] private float _valueToChange = 0;
     [SerializeField] private AudioClip _audioClip;
 
+    [HideInInspector] public DustSpawner DustSpawner;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,6 +20,7 @@ public class Collectible : MonoBehaviour
 
     private void CollectItem()
     {
+        DustSpawner.DustCollected();
         switch (boosterType)
         {
             case BoosterType.Time:
