@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private KatamariPlayer _katamariPlayer;
     [SerializeField] private ScoreUI _scoreUI;
     [SerializeField] private List<GameObject> _gameLevels;
+    [SerializeField] private List<AudioSource> _gameMusicByLevel;
 
     [SerializeField] private List<int> _scoreToWin;
 
@@ -81,7 +85,18 @@ public class GameManager : MonoBehaviour
             _gameLevels[i].SetActive(false);
         }
             _gameLevels[index].SetActive(true);
+
+        if(index == 0)
+        {
+            _gameMusicByLevel[index].Stop();
+        }
+        else
+        {
+            _gameMusicByLevel[index - 1].Stop();
+        }   
+            _gameMusicByLevel[index].Play();
             _levelCanvas[index].SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResetGame() 
@@ -100,6 +115,7 @@ public class GameManager : MonoBehaviour
     {
         _gameTimer.TimmerRunning(true);
         _katamariPlayer.SetCanMove(true);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void UpdateDifficulty(int difficulty)
@@ -142,6 +158,8 @@ public class GameManager : MonoBehaviour
             else
             {
                 _winCanvas.SetActive(true);
+                _gameMusicByLevel[_currentLevel-1].Stop();
+                _gameMusicByLevel[_currentLevel].Play();
             }
         }
         else
@@ -155,6 +173,8 @@ public class GameManager : MonoBehaviour
             else
             {
                 _loseCanvas.SetActive(true);
+                _gameMusicByLevel[_currentLevel].Stop();
+                _gameMusicByLevel[_gameMusicByLevel.Count -1].Play();
             }
         }
     }
