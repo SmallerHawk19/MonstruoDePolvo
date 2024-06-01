@@ -22,6 +22,7 @@ public class KatamariCollectibles : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GetComponent<Rigidbody>().isKinematic = true; //Disbale the RB when it collides with the ground
+        GetComponent<BoxCollider>().isTrigger = true; //Change the collider to trigger
     }
 
     public void Collect(Transform katamariBall)

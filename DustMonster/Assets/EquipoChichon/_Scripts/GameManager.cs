@@ -9,16 +9,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> _gameLevels;
 
     [SerializeField] private List<int> _scoreToWin;
-    [SerializeField] private List<int> _scoreForExtraLife;
 
     [SerializeField] private List<GameObject> _levelCanvas;
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private GameObject _loseCanvas;
-    
+
+    [Range(0,3)]
+    [SerializeField] private int _difficulty = 1;
+
     private int _itemsCollected = 0;
     private int _currentScore = 0;
     private int _currentLevel = 0;
     private int _currentLife = 3;
+    
 
     [HideInInspector] public static GameManager Instance { get; private set; }
 
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _scoreUI.SetScore(_currentScore, _scoreToWin[_currentLevel], _scoreForExtraLife[_currentLevel]);
+        UpdateDifficulty(_difficulty);
     }
 
     public void AddTime(float time)
@@ -49,15 +52,15 @@ public class GameManager : MonoBehaviour
         _katamariPlayer.AddSpeed(speed);
     }
 
-    public void AddShield(float shield)
-    {
-        //TODO
-    }
-
     public void AddScore(int scoreToAdd)
     {
         _currentScore += scoreToAdd;
         _scoreUI.AddScore(scoreToAdd);
+    }
+
+    public void AddShield(float shieldToAdd)
+    {
+        //TODO
     }
 
     public void CollectedItem()
@@ -89,7 +92,7 @@ public class GameManager : MonoBehaviour
         _katamariPlayer.ClearChildren(); //Comment this is you want to keep the dust particles between levels or tries.
         _itemsCollected = 0;
         _currentScore = 0;
-        _scoreUI.SetScore(_currentScore, _scoreToWin[_currentLevel], _scoreForExtraLife[_currentLevel]);
+        UpdateDifficulty(_difficulty);
         _scoreUI.UpdateLifes(_currentLife);
     }
 
@@ -99,9 +102,19 @@ public class GameManager : MonoBehaviour
         _katamariPlayer.SetCanMove(true);
     }
 
+    public void UpdateDifficulty(int difficulty)
+    {
+        _difficulty = difficulty;
+
+        if(_difficulty > 3) _difficulty = 3;
+        if(_difficulty < 0) _difficulty = 0;
+
+        CalculateDifficultyScore();
+    }
+
     private void CheckAddLife()
     {
-        if (_currentScore >= _scoreForExtraLife[_currentLevel])
+        if (_currentScore >= ScoreForExtraLife(_difficulty))
         {
             if (_currentLife < 5)
             {
@@ -109,6 +122,11 @@ public class GameManager : MonoBehaviour
                 _scoreUI.UpdateLifes(_currentLife);
             }
         }
+    }
+
+    private void UpdateScore(int scoreToWin, int scoreForExtraLife)
+    {
+        _scoreUI.SetScore(_currentScore, scoreToWin, scoreForExtraLife);
     }
 
     private void CheckGameConditions()
@@ -139,5 +157,55 @@ public class GameManager : MonoBehaviour
                 _loseCanvas.SetActive(true);
             }
         }
+    }
+
+    private void CalculateDifficultyScore()
+    {
+        UpdateScore(ScoreToWin(_difficulty), ScoreForExtraLife(_difficulty));
+    }
+
+    private int ScoreToWin(int difficulty)
+    {
+        switch (_difficulty)
+        {
+            case 3:
+                return RoundScore(_scoreToWin[_currentLevel]);
+            case 2:
+                return RoundScore(_scoreToWin[_currentLevel] * 0.80f);
+            case 1:
+                return RoundScore(_scoreToWin[_currentLevel] * 0.60f);
+            case 0:
+                return RoundScore(_scoreToWin[_currentLevel] * 0.40f);
+            default:
+                return 0;
+        }
+    }
+
+    private int ScoreForExtraLife(int difficulty)
+    {
+        switch (_difficulty)
+        {
+            case 3:
+                return RoundScore(_scoreToWin[_currentLevel] * 1.10f);
+            case 2:
+                return RoundScore(_scoreToWin[_currentLevel] * 0.90f);
+            case 1:
+                return RoundScore(_scoreToWin[_currentLevel] * 0.70f);
+            case 0:
+                return RoundScore(_scoreToWin[_currentLevel] * 0.50f);
+            default:
+                return 0;
+                
+        }
+    }
+
+    private int RoundScore(float score)
+    {
+        int newScore = Mathf.RoundToInt(score);
+        while(newScore % 5 != 0)
+        {
+            newScore++;
+        }
+        return newScore;
     }
 }
