@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckGameConditions()
     {
-        if (_currentScore >= _scoreToWin[_currentLevel])
+        if (_currentScore >= ScoreToWin(_currentLevel))
         {
             _currentLevel++;
             if (_currentLevel < _gameLevels.Count)
