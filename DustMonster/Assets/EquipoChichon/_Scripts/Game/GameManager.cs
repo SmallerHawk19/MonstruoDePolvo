@@ -1,22 +1,21 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Timer _gameTimer;
     [SerializeField] private KatamariPlayer _katamariPlayer;
     [SerializeField] private ScoreUI _scoreUI;
-    [SerializeField] private List<GameObject> _gameLevels;
-    [SerializeField] private List<AudioSource> _gameMusicByLevel;
+    [SerializeField] private List<GameObject> _gameLevels = new List<GameObject>();
+    [SerializeField] private List<AudioSource> _gameMusicByLevel = new List<AudioSource>();
 
-    [SerializeField] private List<int> _scoreToWin;
+    [SerializeField] private List<int> _scoreToWin = new List<int>();
 
-    [SerializeField] private List<GameObject> _levelCanvas;
+    [SerializeField] private List<GameObject> _levelCanvas = new List<GameObject>();
     [SerializeField] private GameObject _winCanvas;
     [SerializeField] private GameObject _loseCanvas;
+    [SerializeField] private GameObject _resetCanvas;
 
     [Range(0,3)]
     [SerializeField] private int _difficulty = 1;
@@ -85,22 +84,22 @@ public class GameManager : MonoBehaviour
             _gameLevels[i].SetActive(false);
         }
             _gameLevels[index].SetActive(true);
-
-        if(index == 0)
-        {
-            _gameMusicByLevel[index].Stop();
-        }
-        else
-        {
-            _gameMusicByLevel[index - 1].Stop();
-        }   
-            _gameMusicByLevel[index].Play();
+            ResetMusic(index);
             _levelCanvas[index].SetActive(true);
             Cursor.lockState = CursorLockMode.None;
     }
 
+    private void RetryLevel()
+    {
+        _katamariPlayer.SetCanMove(false);
+        _resetCanvas.SetActive(true);
+        Invoke("ResetGame", 3f);
+        Invoke("StartGame", 3.5f);
+    }
+
     public void ResetGame() 
-    {         
+    {    
+        _resetCanvas.SetActive(false);
         _gameTimer.ResetTimer();
         _katamariPlayer.ResetPosition();
         _katamariPlayer.SetCanMove(false);
@@ -158,8 +157,8 @@ public class GameManager : MonoBehaviour
             else
             {
                 _winCanvas.SetActive(true);
-                _gameMusicByLevel[_currentLevel-1].Stop();
-                _gameMusicByLevel[_currentLevel].Play();
+                Cursor.lockState = CursorLockMode.None;
+                ResetMusic(_currentLevel);
             }
         }
         else
@@ -167,14 +166,13 @@ public class GameManager : MonoBehaviour
             _currentLife--;
             if (_currentLife > 0)
             {
-                ChangeLevel(_currentLevel);
-                ResetGame();
+               RetryLevel();
             }
             else
             {
                 _loseCanvas.SetActive(true);
-                _gameMusicByLevel[_currentLevel].Stop();
-                _gameMusicByLevel[_gameMusicByLevel.Count -1].Play();
+                Cursor.lockState = CursorLockMode.None;
+                ResetMusic(_gameMusicByLevel.Count -1);
             }
         }
     }
@@ -227,5 +225,15 @@ public class GameManager : MonoBehaviour
             newScore++;
         }
         return newScore;
+    }
+
+    private void ResetMusic(int index)
+    {
+        for(int i = 0; i < _gameMusicByLevel.Count; i++)
+        {
+            _gameMusicByLevel[i].Stop();
+        }
+
+        _gameMusicByLevel[index].Play();
     }
 }
