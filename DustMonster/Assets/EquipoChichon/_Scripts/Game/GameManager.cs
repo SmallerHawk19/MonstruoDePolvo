@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
     private void RetryLevel()
     {
         _katamariPlayer.SetCanMove(false);
+        _katamariPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        _katamariPlayer.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         _resetCanvas.SetActive(true);
         Invoke("ResetGame", 3f);
         Invoke("StartGame", 3.5f);
